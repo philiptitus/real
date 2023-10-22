@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% extends 'realapp/base.html' %}
+{% block body_block %}
+<div class="container">
+    <h5>These are all the properties available: </h5>
+    <h1> HOUSE_TYPE:  {{ type_details.house_type }}</h1>
+    <h3>DEALER NAME: {{ type_details.dealer_name }}</h3>
+    <h3> DEALER NUMBER: {{ type_details.dealer_number }}</h3>
+
+
+    
+        {% for house in type_details.houses.all %}
+        
+        <table class="table table-light">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">HOUSE NAME</th>
+                <th scope="col">HOUSE LOCATION</th>
+                <th scope="col">SPECIAL FEATURE</th>
+                <th scope="col">PROPERTY PRICE</th>
+                <th scope="col">TYPE</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"></th>
+                <td>{{ house.property_name }}</td>
+                <td>{{ house.property_location }}</td>
+                <td>{{ house.special_feature }}</td>
+                <td>{{ house.property_price }}</td>
+                <td>{{ house.type }}</td>
+              </tr>
+            </tbody>
+          </table>
+        {% endfor%}
+    
+
+<P><a  class="btn btn-info" href="{% url 'realapp:update' pk=type_details.pk %}">UPDATE</a></P>
+<P><a  class="btn btn-danger" href="{% url 'realapp:delete' pk=type_details.pk %}">DELETE</a></P>
+</div>
+{% endblock %}

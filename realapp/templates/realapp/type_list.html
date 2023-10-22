@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "realapp/base.html" %}
+{% block body_block %}
+
+<div class="container">
+    {% for type in type_list %}
+   
+    
+
+    <div class="list-group">
+       
+        <a href="{{ type.id }}" class="list-group-item list-group-item-action">{{ type.house_type }}</a>
+        
+      </div>
+
+
+
+    
+    {% endfor %}
+</div>
+
+{% endblock %}

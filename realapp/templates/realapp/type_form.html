@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends 'realapp/base.html' %}
+{% block body_block %}
+
+<div class="container">
+
+    <h1>
+        {% if not form.instance.pk %}
+        <h3>Fill in the form below to add a house of your choice..</h3>
+
+        
+        {% else %}
+
+        <h3>Fill in the form below to update the property..</h3>
+
+        
+        {% endif %}
+      </h1>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="ADD PROPERTY" class="btn btn-secondary">
+    </form>
+</div>
+{% endblock %}
